@@ -15,7 +15,7 @@ BINARY_OPERATOR_FUNCTIONS:\
     '//': operator.floordiv,
     '%': operator.mod,
 }
-UNARY_OPERATOR_FUNCTIONS: Dict[str,Callable[[int | float],int | float]] = {
+UNARY_OPERATOR_FUNCTIONS: Dict[str,Callable[[int | float], int | float]] = {
     '~': lambda x: -1 * x,
     '$': lambda x: x,
 }
