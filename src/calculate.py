@@ -1,4 +1,5 @@
-from src.constants import (OPERATOR_FUNCTIONS, UNARY_OPERATORS,
+from src.constants import (BINARY_OPERATOR_FUNCTIONS, UNARY_OPERATOR_FUNCTIONS,
+                           UNARY_OPERATORS,
                            FLOAT_OPERATORS, INT_OPERATORS)
 from src.calcerror import CalcError
 
@@ -21,7 +22,7 @@ def calculate(expression: list) -> int | float:
         if elem in UNARY_OPERATORS:
             if len(stack) < 1:
                 raise CalcError("Wrong expression")
-            stack.append(OPERATOR_FUNCTIONS[elem](stack.pop()))
+            stack.append(UNARY_OPERATOR_FUNCTIONS[elem](stack.pop()))
             continue
         if len(stack) < 2:
             raise CalcError("Wrong expression")
@@ -29,11 +30,13 @@ def calculate(expression: list) -> int | float:
         first_operand = stack.pop()
         if elem in INT_OPERATORS:
             if isinstance(first_operand, int) and isinstance(second_operand, int):
-                stack.append(OPERATOR_FUNCTIONS[elem](first_operand, second_operand))
+                stack.append(BINARY_OPERATOR_FUNCTIONS[elem](first_operand,
+                                                             second_operand))
             else:
                 raise CalcError("The operation is applicable only to integers")
         elif elem in FLOAT_OPERATORS:
-            stack.append(OPERATOR_FUNCTIONS[elem](first_operand, second_operand))
+            stack.append(BINARY_OPERATOR_FUNCTIONS[elem](first_operand,
+                                                         second_operand))
         else:
             raise CalcError("Wrong expression")
 
