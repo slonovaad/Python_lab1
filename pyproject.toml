@@ -1,8 +1,59 @@
-[project]
-name = "labs"
-version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.12"
-dependencies = [
-    "pytest>=8.4.2",
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".lock",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`) codes by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+select = ["ALL"]
+ignore = [
+    "Q000",
+    "PT027",
+    "EM101",
+    "TRY003",
+    "D208",
+    "RUF002",
+    "D212",
+    "D205",
+    "FA102",
+    "UP006",
+    "UP035",
+    "I001",
+    "T201",
+    "D100",
+    "PERF402",
+    "PLR2004",
+    "C901",
+    "D104",
+    "D203",
+    "PT009"
 ]

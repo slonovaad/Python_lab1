@@ -1,20 +1,18 @@
-from src.power import power_function
-from src.constants import SAMPLE_CONSTANT
+from src.calculate import calculate
+from src.partition import partition
+from src.convert import convert
 
 
 def main() -> None:
     """
-    Обязательнная составляющая программ, которые сдаются. Является точкой входа в приложение
-    :return: Данная функция ничего не возвращает
+    Точка входа в приложение.
+    :return: Данная функция ничего не возвращает.
     """
-
-    target, degree = map(int, input("Введите два числа разделенные пробелом: ").split(" "))
-
-    result = power_function(target=target, power=degree)
+    expression = input()
+    result = calculate(convert(partition(expression)[0]))
 
     print(result)
 
-    print(SAMPLE_CONSTANT)
 
 if __name__ == "__main__":
     main()
